@@ -6,6 +6,8 @@ const description = document.querySelector('.description');
 const windSpeed = document.querySelector('.wind');
 const cityName = document.querySelector('.city');
 const humidity = document.querySelector('.humidity');
+const time = document.querySelector('.time');
+const date = document.querySelector('.date');
 
 const apiKey = "6382f04e4c45fba665f5b1a2f2c07d86";
 
@@ -44,3 +46,18 @@ getWeather('Kyiv');
 function toUpperCaseChar(item) {
   return item.charAt(0).toUpperCase() + item.slice(1);
 }
+
+function updateTimeDate(){
+    const now = new Date();
+
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    time.textContent =`${hours}:${minutes}`;
+
+    const day = String(now.getDate()).padStart(2, '0');
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const year = now.getFullYear();
+    date.textContent = `${day}/${month}/${year}`;
+}
+updateTimeDate();
+setInterval(updateTimeDate, 60000);
