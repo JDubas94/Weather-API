@@ -68,3 +68,13 @@ body {
     margin-bottom: 10px;
     text-align: center;
 }
+@media (max-width: 450px){
+    .weather{
+        padding: 20px;
+        width: 100%;
+        font-size: 12px;
+    }
+    .line{
+       align-items: center; 
+    }
+}
